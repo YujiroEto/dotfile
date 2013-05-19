@@ -105,6 +105,7 @@ NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'Lokaltog/vim-powerline'
 NeoBundle 'vim-scripts/taglist.vim'
+NeoBundle 'tpope/vim-fugitive'
 
 filetype plugin indent on
 
