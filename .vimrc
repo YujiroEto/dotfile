@@ -8,17 +8,17 @@ set hidden
 "set list
 "行番号を表示する
 set number
-""シフト移動幅
+"シフト移動幅
 set shiftwidth=4
-""閉じ括弧が入力されたとき、対応する括弧を表示する
+"閉じ括弧が入力されたとき、対応する括弧を表示する
 set showmatch
 "検索時に大文字を含んでいたら大/小を区別
 set smartcase
-""新しい行を作ったときに高度な自動インデントを行う
+"新しい行を作ったときに高度な自動インデントを行う
 set autoindent
 "行頭の余白内で Tab を打ち込むと、'shiftwidth' の数だけインデントする。
 set smarttab
-""ファイル内の  が対応する空白の数
+"ファイル内の  が対応する空白の数
 set tabstop=4
 "カッコ自動補完
 imap { {}<LEFT>
@@ -27,7 +27,7 @@ imap ( ()<LEFT>
 
 "カレント行をハイライト
 set cursorline
-set cursorcolumn
+"set cursorcolumn
 
 "可憐とウィンドウのみにライン
 augroup cch
@@ -106,6 +106,9 @@ NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'Lokaltog/vim-powerline'
 NeoBundle 'vim-scripts/taglist.vim'
 NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'Lokaltog/vim-easymotion'
+NeoBundle 'smartchr'
+"NeoBundle 'honza/vim-snipmate'
 
 filetype plugin indent on
 
@@ -144,9 +147,29 @@ let g:neocomplcache_keyword_patterns = {}
 endif
 let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
 
-" for snippets
-"imap <expr><C-k>neocomplcache#sources#snippets_complete#expandable() ?\<Plug>(neosnippet)" : "\<C-n>"
-"smap <C-k> <Plug>(neosnippet))
+
+"for snippets
+"let g:neosnippet#snippets_directory = '~/.vim/bundle/snipmate-snippets/snippets'
+"'~/.vim/snippets'
+
+imap <expr><C-k> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : pumvisible() ? "\<C-n>" : "\<TAB>"
+smap <C-k> <Plug>(neocomplcache_snippets_expand)
+
+" Plugin key-mappings.
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+
+" SuperTab like snippets behavior.
+imap <expr><TAB> neosnippet#expandable() <Bar><bar> neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<C-n>" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable() <Bar><bar> neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
+" For snippet_complete marker.
+if has('conceal')
+  set conceallevel=2 concealcursor=i
+endif
+
+
+
 let file_name = expand("%")
 if has('vim_starting') &&  file_name == ""
 	    autocmd VimEnter * NERDTree ./
@@ -154,11 +177,25 @@ endif
 
 "ctags
 "set tags = tags
-"let Tlist_Ctags_Cmd = "/usr/local/bin/ctags"  " ctagsのコマンド
-"let Tlist_Show_One_File = 1                         " 現在表示中のファイルのみのタグしか表示しない
-"let Tlist_Use_Right_Window = 1                    " 右側にtag listのウインドうを表示する
-"let Tlist_Exit_OnlyWindow = 1                      " taglistのウインドウだけならVimを閉じる
+let Tlist_Ctags_Cmd = "/usr/local/bin/ctags"  " ctagsのコマンド
+let Tlist_Show_One_File = 1                         " 現在表示中のファイルのみのタグしか表示しない
+let Tlist_Use_Right_Window = 1                    " 右側にtag listのウインドうを表示する
+let Tlist_Exit_OnlyWindow = 1                      " taglistのウインドウだけならVimを閉じる
 "\lで実効
-"map <silent> <leader>l :TlistToggle<CR>     
+map <silent> <leader>l :TlistToggle<CR>     
+
+" ホームポジションに近いキーを使う
+let g:EasyMotion_keys='hjklasdfgyuiopqwertnmzxcvbHJKLASDFGYUIOPQWERTNMZXCVB'
+" 「'」 + 何かにマッピング
+let g:EasyMotion_leader_key="'"
+" 1 ストローク選択を優先する
+let g:EasyMotion_grouping=1
+" カラー設定変更
+hi EasyMotionTarget ctermbg=none ctermfg=red
+hi EasyMotionShade  ctermbg=none ctermfg=blue
+
+"smartchr
+inoremap <expr> = smartchr#loop(' = ', ' == ', ' === ', '=')
 
 
+map ,ptv :'<,'>! perltidy
