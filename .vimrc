@@ -109,6 +109,9 @@ NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'smartchr'
 "NeoBundle 'honza/vim-snipmate'
+NeoBundle 'taichouchou2/alpaca_powertabline'
+NeoBundle 'Lokaltog/powerline', { 'rtp' : 'powerline/bindings/vim'}
+NeoBundle 'ack.vim'
 
 filetype plugin indent on
 
