@@ -10,9 +10,9 @@ if [ -f ~/.git-prompt.sh ]; then
 	source ~/.git-prompt.sh
 fi
 
-## git settings
-#GIT_PS1_SHOWDIRTYSTATE=true
-##export PS1='\[\033[1;32m\]\u@\h\[\033[00m\]:\[\033[1;34m\]\w\[\033[1;31m\]$(__git_ps1)\[\033[00m\]\$ '
+# git settings
+GIT_PS1_SHOWDIRTYSTATE=true
+export PS1='\[\033[1;32m\]\u@\h\[\033[00m\]:\[\033[1;34m\]\w\[\033[1;31m\]$(__git_ps1)\[\033[00m\]\$\n '
 
 
 alias ls='ls -G'
@@ -27,3 +27,6 @@ alias gpush='git push origin master'
 
 #alias ls='ls --color = auto'
 
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
