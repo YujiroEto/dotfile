@@ -40,7 +40,7 @@ set cursorcolumn
 "hi clear CursorLine
 "hi CursorLine gui=underline
 "highlight CursorLine ctermbg=black guibg=black
-	
+
 
 "colorscheme
 syntax on
@@ -75,9 +75,9 @@ augroup filetypedetect
 	autocmd BufNewFile,BufRead *.pm   set filetype=perl
 augroup END
 
-augroup filetypedetect 
-	autocmd BufNewFile,BufRead *.pig set filetype=pig syntax=pig 
-augroup END 
+augroup filetypedetect
+	autocmd BufNewFile,BufRead *.pig set filetype=pig syntax=pig
+augroup END
 
 
 augroup SkeletonAu
@@ -192,7 +192,7 @@ let Tlist_Show_One_File = 1                         " 現在表示中のファ�
 let Tlist_Use_Right_Window = 1                    " 右側にtag listのウインドうを表示する
 let Tlist_Exit_OnlyWindow = 1                      " taglistのウインドウだけならVimを閉じる
 "\lで実効
-map <silent> <leader>l :TlistToggle<CR>     
+map <silent> <leader>l :TlistToggle<CR>
 
 " ホームポジションに近いキーを使う
 let g:EasyMotion_keys='hjklasdfgyuiopqwertnmzxcvbHJKLASDFGYUIOPQWERTNMZXCVB'
