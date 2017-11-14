@@ -20,7 +20,7 @@ set smartcase
 "新しい行を作ったときに高度な自動インデントを行う
 "set autoindent
 "行頭の余白内で Tab を打ち込むと、'shiftwidth' の数だけインデントする。
-set smarttab
+"set smarttab
 "カッコ自動補完
 "imap { {}<LEFT>
 "imap [ []<LEFT>
@@ -95,31 +95,31 @@ autocmd FileType perl :map <C-e> <ESC>:!perl %<CR>
 " neobundle.vim
 "----------------------------------------------------
 set nocompatible
+filetype off
 filetype plugin indent off
 
 if has('vim_starting')
 set runtimepath+=~/.vim/bundle/neobundle.vim
  	call neobundle#begin(expand('~/.vim/bundle/'))
  	NeoBundleFetch 'Shougo/neobundle.vim'
+    NeoBundle 'petdance/vim-perl'
+    NeoBundle 'hotchpotch/perldoc-vim'
+    NeoBundle 'Shougo/neocomplcache'
+    NeoBundle 'Shougo/neosnippet'
+    NeoBundle 'Shougo/neosnippet-snippets'
+    NeoBundle 'Shougo/vimfiler'
+    NeoBundle 'Shougo/unite.vim'
+    NeoBundle 'thinca/vim-quickrun'
+    NeoBundle 'scrooloose/nerdtree'
+    NeoBundle 'Lokaltog/vim-powerline'
+    NeoBundle 'vim-scripts/taglist.vim'
+    NeoBundle 'tpope/vim-fugitive'
+    NeoBundle 'Lokaltog/vim-easymotion'
+    NeoBundle 'smartchr'
+    "NeoBundle 'honza/vim-snipmate'
+
  	call neobundle#end()
 endif
-
-
-NeoBundle 'petdance/vim-perl'
-NeoBundle 'hotchpotch/perldoc-vim'
-NeoBundle 'Shougo/neocomplcache'
-NeoBundle 'Shougo/neosnippet'
-NeoBundle 'Shougo/neosnippet-snippets'
-NeoBundle 'Shougo/vimfiler'
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'thinca/vim-quickrun'
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'Lokaltog/vim-powerline'
-NeoBundle 'vim-scripts/taglist.vim'
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'Lokaltog/vim-easymotion'
-NeoBundle 'smartchr'
-"NeoBundle 'honza/vim-snipmate'
 
 filetype plugin indent on
 

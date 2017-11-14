@@ -1,0 +1,8 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_1='/Users/yujiro.eto/.keras'
+let g:netrw_dirhist_2='/Users/yujiro.eto/.ssh'
+let g:netrw_dirhist_3='/Users/yujiro.eto/Documents/dl_using_python_training/tensorflow/tensorflow/tensorflow/g3doc/tutorials/seq2seq'
+let g:netrw_dirhist_4='/Users/yujiro.eto/.pyenv/versions/anaconda-2.4.0/lib/python2.7/site-packages/seq2seq'
+let g:netrw_dirhist_5='/Users/yujiro.eto/Documents/memo/05_DL'
+let g:netrw_dirhist_6='/Users/yujiro.eto/Documents/dl_using_python_training/deep_learning_for_game_log/leave_prediction/.ipynb_checkpoints'

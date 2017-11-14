@@ -1,0 +1,15 @@
+neobundle.vim
+neocomplcache
+neosnippet
+neosnippet-snippets
+nerdtree
+perldoc-vim
+smartchr
+taglist.vim
+unite.vim
+vim-easymotion
+vim-fugitive
+vim-perl
+vim-powerline
+vim-quickrun
+vimfiler
